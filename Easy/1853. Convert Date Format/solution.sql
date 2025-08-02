@@ -1,0 +1,2 @@
+SELECT TO_CHAR(day,'FMDay, FMMonth FMDD, FMYYYY') AS day
+FROM Days;
