@@ -1,0 +1,2 @@
+SELECT COUNT(submit_date) FILTER (WHERE TO_CHAR(submit_date,'FMday') = 'sunday' OR TO_CHAR(submit_date,'FMday') = 'saturday') AS weekend_cnt, COUNT(submit_date) FILTER (WHERE TO_CHAR(submit_date,'FMday') != 'sunday' AND TO_CHAR(submit_date,'FMday') != 'saturday') AS working_cnt
+FROM Tasks;
