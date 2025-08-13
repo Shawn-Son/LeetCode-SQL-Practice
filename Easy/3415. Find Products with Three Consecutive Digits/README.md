@@ -1,46 +1,57 @@
-# LeetCode 3415. Find Products with Three Consecutive Digits
+# 3198. Find Cities in Each State
 
-## 📌 Problem Statement
-You are given a table `Products` containing product IDs and names.
+## Problem Description
 
-### **Table: Products**
-| Column Name | Type    | Description |
-|-------------|---------|-------------|
-| product_id  | int     | Unique identifier for each product |
-| name        | varchar | Name of the product |
+You are given a table `cities` containing:
 
-`product_id` is the **primary key**.
+| Column Name | Type    |
+|-------------|---------|
+| state       | varchar |
+| city        | varchar |
 
----
+- `(state, city)` is the primary key (unique combination).
+- Each row contains the **state name** and a **city** in that state.
 
-## 🎯 Goal
-Find all products whose `name` contains a sequence of **exactly three consecutive digits** in a row.
-
-**Rules:**
-- The sequence must be **exactly 3 digits** (e.g., `123`, `003`, `789`).
-- Ignore products with no such sequence.
-- If the name contains multiple sequences, it still qualifies.
-- Return the result ordered by `product_id` in ascending order.
+You must:
+- Find **all cities** in each state.
+- Combine them into a **single comma-separated string**.
+- Return results ordered by `state` in ascending order, and within each state, cities in ascending order.
 
 ---
 
-## 💡 Example
-### **Input**
-| product_id | name               |
-|------------|--------------------|
-| 1          | ABC123XYZ          |
-| 2          | A12B34C            |
-| 3          | Product56789       |
-| 4          | NoDigitsHere       |
-| 5          | 789Product         |
-| 6          | Item003Description |
-| 7          | Product12X34       |
+## Example
 
-### **Output**
-| product_id | name               |
-|------------|--------------------|
-| 1          | ABC123XYZ          |
-| 5          | 789Product         |
-| 6          | Item003Description |
+### Input
+
+**cities** table:
+| state       | city          |
+|-------------|---------------|
+| California  | Los Angeles   |
+| California  | San Francisco |
+| California  | San Diego     |
+| Texas       | Houston       |
+| Texas       | Austin        |
+| Texas       | Dallas        |
+| New York    | New York City |
+| New York    | Buffalo       |
+| New York    | Rochester     |
+
+### Output
+
+| state       | cities                                |
+|-------------|---------------------------------------|
+| California  | Los Angeles, San Diego, San Francisco |
+| New York    | Buffalo, New York City, Rochester     |
+| Texas       | Austin, Dallas, Houston               |
+
+---
+
+## Explanation
+
+- **California** → `"Los Angeles, San Diego, San Francisco"`
+- **New York** → `"Buffalo, New York City, Rochester"`
+- **Texas** → `"Austin, Dallas, Houston"`
+
+Cities are listed in alphabetical order within each state.
 
 ---
