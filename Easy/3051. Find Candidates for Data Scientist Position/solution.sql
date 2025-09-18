@@ -1,6 +1,7 @@
 -- Write your PostgreSQL query statement below
-SELECT candidate_id
-FROM Candidates
+SELECT candidate_id 
+FROM Candidates 
+WHERE skill IN ('Python','Tableau','PostgreSQL')
 GROUP BY candidate_id
-HAVING STRING_AGG(skill, ', ' ORDER BY skill) LIKE '%PostgreSQL, Python, Tableau%'
+HAVING COUNT(DISTINCT skill) = 3
 ORDER BY candidate_id;
